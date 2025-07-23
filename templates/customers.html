@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Customers</h2>
+<a href="/customer/add" class="btn btn-primary mb-3">Add Customer</a>
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr><th>ID</th><th>Name</th><th>Phone</th><th>Email</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+        {% for c in customers %}
+        <tr>
+            <td>{{ c[0] }}</td><td>{{ c[1] }}</td><td>{{ c[2] }}</td><td>{{ c[3] }}</td>
+            <td>
+                <a href="/customer/edit/{{ c[0] }}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="/customer/delete/{{ c[0] }}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

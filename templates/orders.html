@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Orders</h2>
+<a href="/order/add" class="btn btn-primary mb-3">Add Order</a>
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr><th>ID</th><th>Customer ID</th><th>Product ID</th><th>Quantity</th><th>Date</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+        {% for o in orders %}
+        <tr>
+            <td>{{ o[0] }}</td><td>{{ o[1] }}</td><td>{{ o[2] }}</td><td>{{ o[3] }}</td><td>{{ o[4] }}</td>
+            <td>
+                <a href="/order/delete/{{ o[0] }}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

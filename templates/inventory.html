@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Inventory</h2>
+<a href="/inventory/add" class="btn btn-primary mb-3">Add Inventory Item</a>
+<table class="table table-bordered">
+  <thead class="table-dark">
+    <tr><th>ID</th><th>Product Name</th><th>Stock</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+    {% for i in inventory %}
+    <tr>
+      <td>{{ i[0] }}</td><td>{{ i[1] }}</td><td>{{ i[2] }}</td>
+      <td>
+        <a href="/inventory/edit/{{ i[0] }}" class="btn btn-warning btn-sm">Edit</a>
+        <a href="/inventory/delete/{{ i[0] }}" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

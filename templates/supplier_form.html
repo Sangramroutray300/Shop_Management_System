@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ action }} Supplier</h2>
+<form method="POST">
+  <div class="mb-3"><label>Name</label><input type="text" name="name" class="form-control" value="{{ supplier[1] if supplier else '' }}" required></div>
+  <div class="mb-3"><label>Contact</label><input type="text" name="contact" class="form-control" value="{{ supplier[2] if supplier else '' }}" required></div>
+  <button class="btn btn-success">{{ action }}</button>
+</form>
+{% endblock %}
